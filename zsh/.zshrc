@@ -11,9 +11,15 @@ export GOBIN="$WORKSPACE/go/bin"
 export GOCACHE="$HOME/.cache/go-build"
 
 # fzf
-# TO BE COMPLETED
+source <(fzf --zsh)
 
 # Auto Completion
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
 autoload -U compinit; compinit
 eval "$(zoxide init zsh)"
 
